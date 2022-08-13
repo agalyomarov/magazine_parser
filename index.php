@@ -89,7 +89,6 @@ foreach ($catalogs_href as $key => $href) {
                $sheet->setCellValue('F' . $count, $site . $image);
                $writer = new Xlsx($spreadsheet);
                $writer->save('products.xlsx');
-               if ($count > 10) die;
                $count++;
             }
          }
@@ -129,7 +128,6 @@ foreach ($catalogs_href as $key => $href) {
             $sheet->setCellValue('F' . $count, $site . $image);
             $writer = new Xlsx($spreadsheet);
             $writer->save('products.xlsx');
-            if ($count > 10) die;
             $count++;
          }
       }
