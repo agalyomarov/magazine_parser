@@ -6,10 +6,9 @@ ini_set('log_errors', 'On');
 ini_set('error_log', 'php_errors.log');
 ini_set("max_execution_time", "3600");
 ini_set('allow_url_fopen', 1);
-ini_set('memory_limit', '500M');
+ini_set('memory_limit', '3000M');
 
 require "vendor/autoload.php";
-require "config.php";
 
 use PHPHtmlParser\Dom;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
@@ -32,7 +31,7 @@ $sheet->setCellValue('F1', 'ссылка на фото товара-1');
 $writer = new Xlsx($spreadsheet);
 $writer->save('p.xlsx');
 $site = "https://www.planeta-sirius.ru";
-$catalogs_content = file_get_contents($catologs);
+$catalogs_content = file_get_contents("https://www.planeta-sirius.ru/katalog/");
 $dom = new Dom;
 $dom2 = new Dom;
 $dom->loadStr($catalogs_content);
@@ -94,7 +93,6 @@ foreach ($catalogs_href as $key => $href) {
                $writer->save('p.xlsx');
                $count++;
                echo $count . "<br>";
-               if ($count > 300) die();
             }
          }
       }
@@ -136,7 +134,6 @@ foreach ($catalogs_href as $key => $href) {
             $writer->save('p.xlsx');
             $count++;
             echo $count . "<br>";
-            if ($count > 300) die();
          }
       }
    }
