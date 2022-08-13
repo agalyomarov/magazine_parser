@@ -29,6 +29,8 @@ $sheet->setCellValue('C1', 'Описание ');
 $sheet->setCellValue('D1', 'Цена-1 ');
 $sheet->setCellValue('E1', 'Цена-2 ');
 $sheet->setCellValue('F1', 'ссылка на фото товара-1');
+$writer = new Xlsx($spreadsheet);
+$writer->save('p.xlsx');
 $site = "https://www.planeta-sirius.ru";
 $catalogs_content = file_get_contents($catologs);
 $dom = new Dom;
@@ -79,6 +81,9 @@ foreach ($catalogs_href as $key => $href) {
                $price_opt = str_replace("&#8381;", '₽', strip_tags($price_opt));
                $price_rozn = str_replace('Цена', '', strip_tags($price_rozn));
                $price_rozn = str_replace("&#8381;", '₽', strip_tags($price_rozn));
+               $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+               $spreadsheet = $reader->load("p.xlsx");
+               $sheet = $spreadsheet->getActiveSheet();
                $sheet->setCellValue('A' . $count, $article);
                $sheet->setCellValue('B' . $count, htmlspecialchars_decode($title));
                $sheet->setCellValue('C' . $count, $desc);
@@ -89,6 +94,7 @@ foreach ($catalogs_href as $key => $href) {
                $writer->save('p.xlsx');
                $count++;
                echo $count . "<br>";
+               if ($count > 300) die();
             }
          }
       }
@@ -117,6 +123,9 @@ foreach ($catalogs_href as $key => $href) {
             $price_opt = str_replace("&#8381;", '₽', strip_tags($price_opt));
             $price_rozn = str_replace('Цена', '', strip_tags($price_rozn));
             $price_rozn = str_replace("&#8381;", '₽', strip_tags($price_rozn));
+            $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+            $spreadsheet = $reader->load("p.xlsx");
+            $sheet = $spreadsheet->getActiveSheet();
             $sheet->setCellValue('A' . $count, $article);
             $sheet->setCellValue('B' . $count, htmlspecialchars_decode($title));
             $sheet->setCellValue('C' . $count, $desc);
@@ -127,6 +136,7 @@ foreach ($catalogs_href as $key => $href) {
             $writer->save('p.xlsx');
             $count++;
             echo $count . "<br>";
+            if ($count > 300) die();
          }
       }
    }
