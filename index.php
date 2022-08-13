@@ -4,9 +4,9 @@ ini_set('display_errors', TRUE);
 ini_set('display_startup_errors', TRUE);
 ini_set('log_errors', 'On');
 ini_set('error_log', 'php_errors.log');
-ini_set("max_execution_time", "3600");
+ini_set("max_execution_time", "7200");
 ini_set('allow_url_fopen', 1);
-ini_set('memory_limit', '3000M');
+ini_set('memory_limit', '10000M');
 
 require "vendor/autoload.php";
 
