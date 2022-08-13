@@ -1,0 +1,2 @@
+[13-Aug-2022 07:51:12 UTC] PHP Warning:  file_get_contents(https://www.planeta-sirius.ru/katalog/specodezhda/rabochaya-zimnyaya/kostyum-sirius-imidzh-kurtka-bryuki125/): Failed to open stream: Operation now in progress in /Users/agaly/Desktop/parser_katalog/index.php on line 73
+[13-Aug-2022 07:51:12 UTC] PHP Warning:  Attempt to read property "text" on null in /Users/agaly/Desktop/parser_katalog/index.php on line 76
